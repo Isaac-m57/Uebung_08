@@ -7,6 +7,7 @@ public class Bruch
 	public Bruch(int zaehler, int nenner) 
 	{
 		this.zaehler=zaehler;
+		this.nenner=nenner;
 	}
 	private int ggT(int x, int y) 
 	{
@@ -40,12 +41,16 @@ public class Bruch
 			d = Math.abs(d);
 			e = Math.abs(e);
 		}
-		if((d<0 || e<0) &&(a<0 || c<0)) 
+		if((d<0 || e<0) && (a<0 || c<0)) 
 		{
 			a = Math.abs(a);
 			c = Math.abs(c);
 			d = Math.abs(d);
 			e = Math.abs(e);
+			if(a==d && c==e) 
+			{
+				return true;
+			}
 		}
 		if(a==d && c==e) 
 		{

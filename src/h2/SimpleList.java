@@ -29,25 +29,28 @@ public class SimpleList
 		if(head==null) 
 		{
 			head = new Node(newValue);
+			return;
 		}
 		if(this.getFirst()==this.getLast()) 
 		{
 			head.next = new Node(newValue);
+			return;
 		}
 		this.getLast().next= new Node(newValue);
+		return;
 	
 	}
 	
 	public Node findFirst(int value) 
 	{
 		Node a = head;
-		while(a.next!=null) 
+		while(a!=null) 
 		{
 			if(a.value==value) 
 			{
 				return a;
 			}
-			a.next = a;
+			a = a.next;
 		}
 		return null;
 	}
@@ -55,14 +58,14 @@ public class SimpleList
 	public boolean insertAfter(int preValue, int newValue)
 	{
 		Node a; 
-		a= findFirst(preValue);
+		a = this.findFirst(preValue);
 		if(a==null) 
 		{
 			return false;
 		}
-		if(a.next==null) 
+		if(a==this.getLast()) 
 		{
-			append(newValue);			//a.next= new Node(newValue);
+			this.append(newValue);
 			return true;
 		}
 		Node b = new Node(newValue);
@@ -78,7 +81,7 @@ public class SimpleList
 			return false;
 		}
 		Node a = head;
-		while(a!=findFirst(value)) 
+		while(a.next!=findFirst(value)) 
 		{
 			a = a.next;
 		}
