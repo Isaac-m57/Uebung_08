@@ -6,8 +6,15 @@ public class Bruch
 	int nenner = 20;
 	public Bruch(int zaehler, int nenner) 
 	{
-		this.zaehler=zaehler;
-		this.nenner=nenner;
+		if(nenner==0) 
+		{
+			throw new ArithmeticException("Ein Bruch mit 0 im Nenner ist nicht definiert.");
+		}
+		else 
+		{
+			this.nenner=nenner;
+			this.zaehler=zaehler;
+		}
 	}
 	private int ggT(int x, int y) 
 	{
