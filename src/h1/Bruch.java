@@ -56,6 +56,10 @@ public class Bruch
 		{
 			return true;
 		}
+		if(a==0 && d==0) 
+		{
+			return true;
+		}
 		return false;
 	}
 }
